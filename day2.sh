@@ -15,3 +15,10 @@ awk '
 /forward/ {h+=$2; d+=aim*$2}
 END {print d*h}
 ' day2.input
+
+## tweet sized
+echo "p1"
+awk '/^u/ {d-=$2} /^d/ {d+=$2} /^f/ {h+=$2} END {print d*h}' day2.input
+
+echo "p2"
+awk '/^u/ {a-=$2} /^d/ {a+=$2} /^f/ {h+=$2;d+=a*$2} END {print d*h}' day2.input
