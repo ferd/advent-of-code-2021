@@ -6,6 +6,8 @@
 # so doing a b[i]>0 casts the value to “most common” and b[i]<0
 # casts it to “least common” since true/false are 1/0 respectively.
 echo "part 1"
+awk -f day3.1.awk day3.input
+
 awk '
 BEGIN {FS=""}
 { for (i=1; i<=NF; i++) { b[i] += $i*2-1 } }
@@ -25,15 +27,18 @@ END {
 # I first define base functions; read all the numbers in a two-dimensional
 # array, then process them as the exercise demands.
 echo "part 2"
+
+awk -f day3.2.awk day3.input
+
 awk '
-function common(k,arr,    i,c) {
+func common(k,arr,    i,c) {
   for (i in arr) { c += arr[i][k]*2-1 }
   return c>=0
 }
-function cull(k,v,arr,    i) {
+func cull(k,v,arr,    i) {
   for (i in arr) { if (arr[i][k] != v) { delete arr[i] } }
 }
-function to_n(arr,  i,j,c) {
+func to_n(arr,  i,j,c) {
   for (i in arr) { for (j in arr[i]) { c=lshift(c,1)+arr[i][j] } }
   return c
 }
