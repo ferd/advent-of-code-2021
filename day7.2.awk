@@ -5,7 +5,7 @@ func abs(x) { return (x<0) ? x*-1 : x }
 BEGIN { FS="," }
 { for (i=1; i<=NF; i++) { l[$i]++ } }
 END {
-    minf=9999999999
+    minf=2^PREC
     for (i in l) { mi=max(i, mi) }
     for (i=0; i<=mi; i++) {
         g=0;
