@@ -1,7 +1,7 @@
 BEGIN { FS=""; a[0][0]=0 }
-{
-    for (i=1; i<=NF; i++) { a[NR][i]=$i+1 }
-}
+
+{ for (i=1; i<=NF; i++) { a[NR][i]=$i+1 } }
+
 END {
     for (i=1; i<=NR; i++) {
         for (j=1; j<=NF; j++) {
