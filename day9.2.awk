@@ -20,8 +20,7 @@ END {
 
 func basin(x,y,a) {
     if (a[x][y]==0 || a[x][y]==10) { return 0 }
-    # we can destructively alter the basin since they're all separated, but only
-    # if we zero its values out, to prevent creating other basins
+    # we can destructively alter the basin since they're all separated
     a[x][y]=0
     return 1+basin(x,y-1,a)+basin(x-1,y,a)+basin(x+1,y,a)+basin(x,y+1,a)
 }
