@@ -25,7 +25,7 @@ END {
         if(i==10) {
             copy(acc,accp1)
             asort(accp1)
-            print "part 1", accp1[length(acc)]-accp1[1]
+            print "part 1", accp1[length(accp1)]-accp1[1]
         }
     }
     asort(acc)
